@@ -73,6 +73,8 @@ else
   header_dirs_.delete_if{ |path_| !::File.directory?(path_) }
   lib_dirs_.delete_if{ |path_| !::File.directory?(path_) }
 
+  $CFLAGS += " -DACCEPT_USE_OF_DEPRECATED_PROJ_API_H "
+
   found_proj_ = false
   header_dirs_, lib_dirs_ = dir_config('proj', header_dirs_, lib_dirs_)
   if have_header('proj_api.h')
